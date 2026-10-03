@@ -9,11 +9,11 @@
 >
 > ```toml
 > [dependencies]
-> llm = "^0.1.0"
+> llm = "^0.2.0"
 > ```
 >
 > Sin índice, la dependencia git directa:
-> `llm = "git+https://github.com/ray-language/llm@v0.1.0"`.
+> `llm = "git+https://github.com/ray-language/llm@v0.2.0"`.
 
 
 Una conversación con un modelo, con herramientas y con respuesta por partes, escrita en raylang
@@ -115,7 +115,7 @@ fn main() -> int {
             "add",
             "Adds two integers",
             `{"type":"object","properties":{"a":{"type":"integer"},"b":{"type":"integer"}},"required":["a","b"]}`
-        ).unwrap()
+        )
     ];
     var history = [llm.user("What is 19 + 23?")];
     var step = 0;
@@ -164,7 +164,7 @@ Las herramientas de un servidor MCP se ofrecen igual: el paquete
 | `send(c, tools, history) -> Result<Reply, string>` | una ida y vuelta |
 | `send_stream(c, tools, history, show) -> Result<Reply, string>` | lo mismo, entregando el texto a `show` según llega |
 | `user(text)` · `tool_result(call_id, text)` | los turnos que añade tu programa |
-| `tool(name, description, schema) -> Result<Tool, string>` | una herramienta; `schema` es el JSON Schema como texto |
+| `tool(name, description, schema) -> Tool` | una herramienta; `schema` es el JSON Schema como texto, y uno que no sea JSON aborta el programa |
 | `tool_calls(reply) -> [ToolCall]` | lo que pide el modelo; vacío si terminó |
 | `models(c) -> Result<[string], string>` | los modelos que sirve el endpoint; no gasta tokens |
 
