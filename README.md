@@ -1,19 +1,17 @@
 # `llm` — hablar con modelos de lenguaje (adicional, **no** embebido)
 
-> **Espejo de solo lectura** — publicado desde
-> [`raylang/packages/llm`](https://github.com/ray-language/raylang/tree/main/packages/llm);
-> el desarrollo y los PRs van al monorepo.
+> **Read-only mirror** — published from [`https://github.com/ray-language/raylang/tree/main/packages/llm`](https://github.com/ray-language/raylang/tree/main/packages/llm); development and pull requests go there.
 >
-> **Instalación** — `ray add llm` en tu proyecto (el índice oficial va por defecto), o a
-> mano en `ray.toml`:
+> **Install** — `ray add llm` in your project (the official index is the default), or by
+> hand in `ray.toml`:
 >
 > ```toml
 > [dependencies]
-> llm = "^0.2.0"
+> llm = "^0.2.1"
 > ```
 >
-> Sin índice, la dependencia git directa:
-> `llm = "git+https://github.com/ray-language/llm@v0.2.0"`.
+> Without an index, the direct git dependency:
+> `llm = "git+https://github.com/ray-language/llm@v0.2.1"`.
 
 
 Una conversación con un modelo, con herramientas y con respuesta por partes, escrita en raylang
@@ -153,7 +151,8 @@ Las herramientas de un servidor MCP se ofrecen igual: el paquete
 
 ## Superficie
 
-`import llm/llm;`
+`import llm/llm;` (los tipos `Config`, `Message`, `ToolCall`, `Reply`, `Tool` y `Usage` se
+reexportan: `llm.Config` vale como anotación sin saber en qué módulo vive cada uno)
 
 | Función | Qué hace |
 |---|---|

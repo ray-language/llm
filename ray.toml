@@ -3,7 +3,7 @@
 # `ray registry publish`.
 [package]
 name = "llm"
-version = "0.2.0"
+version = "0.2.1"
 license = "Apache-2.0"
 description = "Talk to language models from raylang: one conversation model over the Anthropic Messages API and the OpenAI Chat Completions dialect (OpenAI, Ollama, OpenRouter, Groq, Mistral, Gemini…), with tool calls, streaming, retries and prompt caching"
 keywords = ["llm", "ai", "anthropic", "claude", "openai", "ollama", "openrouter", "chat", "streaming", "tools", "agent", "sse"]
@@ -11,4 +11,4 @@ entry = "llm.ray"
 
 # El transporte es el cliente HTTP con streaming y el decodificador SSE de `net`.
 [dependencies]
-net = "git+https://github.com/ray-language/net@v0.5.0"
+net = "^0.10.1"
